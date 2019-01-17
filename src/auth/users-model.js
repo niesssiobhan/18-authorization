@@ -9,7 +9,7 @@ const SINGLE_USE_TOKENS = !!process.env.SINGLE_USE_TOKENS;
 const TOKEN_EXPIRE = process.env.TOKEN_LIFETIME || 60;
 const SECRET = process.env.SECRET || 'foobar';
 
-let timer = setInterval(() => {faker.random.word().toString}, 60000);
+// let timer = setInterval(() => {faker.random.word().toString}, 60000);
 
 const usedTokens = new Set();
 
@@ -49,10 +49,15 @@ users.statics.createFromOauth = function(email) {
 };
 
 users.statics.authenticateToken = function(token) {
-  let parsedToken = jwt.verify(token, process.env.SECRET);
-  let query = {_id:parsedToken.id};
-  return this.findOne(query);
-};
+    if(usedTokens.has(token)) {
+      throw 'Resource Not Available';
+    } else {
+      usedTokens.add(token);
+      let parsedToken = jwt.verify(token, SECRET);
+      let query = {_id:parsedToken.id};
+      return this.findOne(query);    
+    }
+  };
 
 users.statics.authenticateBasic = function(auth) {
   let query = {username:auth.username};
@@ -74,7 +79,7 @@ users.methods.generateToken = function(type) {
     type: type || 'user',
   };
   
-  return jwt.sign(token, process.env.SECRET, { expiresIn: 60 }); 
+  return jwt.sign(token, process.env.SECRET, { expiresIn: TOKEN_EXPIRE }); 
 };
 
 users.methods.generateKey = function() {
