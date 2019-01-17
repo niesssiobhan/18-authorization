@@ -8,16 +8,21 @@ module.exports = (req, res, next) => {
   // Bearer Token ...
   try {
     let [authType, authString] = req.headers.authorization.split(/\s+/);
+
+    console.log(authType);
+    console.log(authString);
     
     switch( authType.toLowerCase() ) {
       case 'basic': 
         return _authBasic(authString);
+        case 'bearer':
+        return authBearer(authString);
       default: 
         return _authError();
     }
   }
   catch(e) {
-    console.log(e);
+    next('Resource Not Available');
   }
   
   
@@ -32,6 +37,11 @@ module.exports = (req, res, next) => {
       .then(user => _authenticate(user) )
       .catch(next);
   }
+function authBearer(str) {
+  return User.authenticateToken(str)
+    .then(user => _authenticate(user))
+    .catch(next);
+}
 
   function _authenticate(user) {
     console.log({user});

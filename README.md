@@ -1,15 +1,14 @@
 ![CF](http://i.imgur.com/7v5ASc8.png) LAB
 =================================================
 
-## Project Name
+## Authorization
 
-### Author: Student/Group Name
+### Author: Siobhan Niess
 
 ### Links and Resources
 * [repo](http://xyz.com)
 * [travis](http://xyz.com)
-* [back-end](http://xyz.com) (when applicable)
-* [front-end](http://xyz.com) (when applicable)
+* [server](http://xyz.com)
 
 #### Documentation
 * [swagger](http://xyz.com) (API assignments only)
@@ -19,11 +18,12 @@
 #### `modulename.js`
 ##### Exported Values and Methods
 
-###### `foo(thing) -> string`
-Usage Notes or examples
-
-###### `bar(array) -> array`
-Usage Notes or examples
+#### Collaborators
+* Brent
+* Becca
+* Heather
+* Jacob
+* Caity
 
 ### Setup
 #### `.env` requirements
