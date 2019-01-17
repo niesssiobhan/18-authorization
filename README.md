@@ -6,16 +6,20 @@
 ### Author: Siobhan Niess
 
 ### Links and Resources
-* [repo](http://xyz.com)
-* [travis](http://xyz.com)
-* [server](http://xyz.com)
+* [repo](https://github.com/niesssiobhan/18-authorization)
+* [travis](https://travis-ci.com/niesssiobhan/18-authorization)
+* [server](https://niess-lab-18.herokuapp.com/)
 
-#### Documentation
-* [swagger](http://xyz.com) (API assignments only)
-* [jsdoc](http://xyz.com) (All assignments)
+#### Documentation)
+* [jsdoc](http://xyz.com)
 
 ### Modules
-#### `modulename.js`
+#### `app.js`
+#### `google.js`
+#### `middleware.js`
+#### `router.js`
+#### `user-model.js`
+#### `index.js`
 ##### Exported Values and Methods
 
 #### Collaborators
@@ -27,20 +31,17 @@
 
 ### Setup
 #### `.env` requirements
-* `PORT` - Port Number
-* `MONGODB_URI` - URL to the running mongo instance/db
+* `PORT` - Port Number 8080
+* `MONGODB_URI` - MONGODB_URI=mongodb://localhost:27017/lab18
 
 #### Running the app
-* `npm start`
-* Endpoint: `/foo/bar/`
-  * Returns a JSON object with abc in it.
-* Endpoint: `/bing/zing/`
-  * Returns a JSON object with xyz in it.
+*
   
 #### Tests
 * How do you run tests?
+npm test
 * What assertions were made?
 * What assertions need to be / should be made?
 
 #### UML
-Link to an image of the UML for your application and response to events
+![lab 18 uml](./assets/lab18.jpg)
