@@ -7,7 +7,9 @@
     "start": "node index.js",
     "watch": "nodemon index.js",
     "test-watch": "jest --watchAll",
-    "test": "jest"
+    "test": "jest",
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
+
   },
   "jest": {
     "testEnvironment": "node"
