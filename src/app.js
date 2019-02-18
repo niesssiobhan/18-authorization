@@ -10,11 +10,12 @@ const errorHandler = require( './middleware/500.js');
 const notFound = require( './middleware/404.js' );
 const authRouter = require( './auth/router.js' );
 
-// Static Routes
-app.use('/docs', express.static('docs'));
-
 // Prepare the express app
 const app = express();
+
+// Static Routes
+app.use('/docs', express.static('docs'));
+ 
 
 // App Level MW
 app.use(cors());
